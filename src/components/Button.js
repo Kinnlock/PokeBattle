@@ -1,23 +1,24 @@
 import PropTypes from "prop-types";
 
-const Button = ({onClick, label, type, borderColor, width, height, backgroundColor, color, fontSize, fontFamily}) => {
+const Button = ({onClick, label, type, borderColor, width, height, backgroundColor, color, fontSize, fontFamily, margin}) => {
   return (
     <button type={type}
             onClick={onClick}
-            style={{borderRadius: "10",
+            style={{borderRadius: "15px",
                     borderColor,
                     width, 
                     height,
                     backgroundColor,
                     color, 
                     fontSize, 
-                    fontFamily}}>{label}</button>
+                    fontFamily,
+                    margin}}>{label}</button>
   );
 };
 
 Button.propTypes = {
     onClick: PropTypes.func,
-    label: PropTypes.string,isRequired,
+    label: PropTypes.string.isRequired,
     type: PropTypes.oneOf(["button", "submit", "reset"])
 };
 
