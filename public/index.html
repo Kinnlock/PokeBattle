@@ -45,12 +45,30 @@
   <style>
     html{
       background-image: url("https://i.pinimg.com/originals/19/53/43/195343df7bce8e376c2e15407cf46c3c.jpg");
-      background-size: auto auto !important;
+      background-size: 100% !important;
       background-repeat: no-repeat;
     }
     
     body{
       background-color: rgba(0, 0, 0, 0);
+      color: antiquewhite;
     }
+
+    #poke {
+  position: relative; 
+  animation-name: moveUpDown;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite; 
+  animation-timing-function: ease-in-out; 
+}
+
+@keyframes moveUpDown {
+  0% {
+    top: 0; }
+  50% {
+    top: 5px;}
+  100% {
+    top: 0px;}
+  }
   </style>
 

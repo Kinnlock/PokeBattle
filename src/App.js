@@ -8,6 +8,7 @@ const App = () => {
   const [pokeAll, setPokeAll] = useState([]);
   const [pokeCurrent, setPokeCurrent] = useState(null);
   const [pokeCurrentTwo, setPokeCurrentTwo] = useState(null);
+  const [win, setWin] = useState('');
 
   //Récupère tout les pokémons 
   useEffect(() => {
@@ -32,11 +33,11 @@ const App = () => {
     if (pokeCurrent && pokeCurrentTwo) {
 
       if (pokeCurrent.stats[1].base_stat > pokeCurrentTwo.stats[1].base_stat) {
-        alert(pokeCurrent.forms[0].name)
+        setWin("Le gagnant est : "+pokeCurrent.forms[0].name)
       }
 
       if (pokeCurrent.stats[1].base_stat < pokeCurrentTwo.stats[1].base_stat) {
-        alert(pokeCurrentTwo.forms[0].name)
+        setWin("Le gagnant est : "+pokeCurrentTwo.forms[0].name)
       }
     }
 
@@ -51,7 +52,7 @@ const App = () => {
       <div>
         <h1 style={{ textAlign: "center", fontSize: "60px", color: "#F2CB05", fontFamily: "Pokemon Solid", margin: 0, textShadow: "10px  10px  2px  blue" }}>Poke battle !</h1>
         <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <div style={{ background: "rgba(0, 0, 0, 0.7)", width: "300px", height: "450px", border: "2px", borderColor: "black", marginTop: "100px"}}>
+          <div style={{ background: "rgba(0, 0, 0, 0.7)", width: "15%", height: "450px", border: "2px", borderColor: "black", marginTop: "100px" }}>
             <h1 style={{ textAlign: "center" }}>Ready player 1</h1>
 
             <div style={{ textAlign: "center" }}>
@@ -63,24 +64,35 @@ const App = () => {
             </div>
           </div>
 
-          <div style={{ position: "absolute", marginTop: "1%", display: "flex", flexDirection: "column", gap: "20px"}}>
-            <div style={{display: "flex", justifyContent: "center"}}> 
-            <Button backgroundColor="#F2CB05"
-              fontFamily="Pokemon Solid"
-              label="FIGHT !"
-              onClick={battle}
-              width="100px"
-              height="60px"
-              color="blue"
-              borderColor="blue">
-            </Button>
+          <div style={{ position: "absolute", marginTop: "1%", display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button backgroundColor="#F2CB05"
+                fontFamily="Pokemon Solid"
+                label="FIGHT !"
+                onClick={battle}
+                width="100px"
+                height="60px"
+                color="blue"
+                borderColor="blue">
+              </Button>
             </div>
+
             <div>
-              <img src="https://art.pixilart.com/3d21237dd0410ba.png" 
-                   width={450}/>
+              <img src="https://art.pixilart.com/3d21237dd0410ba.png"
+                width={450} />
             </div>
+
+            <div style={{ position: "absolute", left: "5%", top: "49%", }}>
+              {pokeCurrent && <img id="poke" src={pokeCurrent.sprites?.back_default} alt="Back sprite" style={ {width: "200%"}} />}
+            </div>
+            <div style={{ position: "absolute", left: "62%", top: "40%", width: "25%" }}>
+              {pokeCurrentTwo && <img id="poke" src={pokeCurrentTwo.sprites?.front_default} alt="Front sprite" />}
+            </div>
+
+            <p style={{position:'absolute', top:"79%", left:"5%", color:"black"}}>{win}</p>
+
           </div>
-          <div style={{ background: "rgba(0, 0, 0, 0.7)", width: "300px", height: "450px", border: "2px", borderColor: "black", marginTop: "100px" }}>
+          <div style={{ background: "rgba(0, 0, 0, 0.7)", width: "15%", height: "450px", border: "2px", borderColor: "black", marginTop: "100px" }}>
             <h1 style={{ textAlign: "center" }}>Ready player 2</h1>
 
             <div style={{ textAlign: "center" }}>
