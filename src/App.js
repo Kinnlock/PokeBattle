@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+const App = () => {
 
-function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+        <h1 style={{textAlign: "center", fontSize: "60px", color: "yellow"}}>Poke battle !</h1>
+    </>
   );
-}
+};
 
 export default App;
