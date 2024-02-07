@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Button = ({onClick, label, type, borderColor, width, height, backgroundColor, color, fontSize}) => {
+const Button = ({onClick, label, type, borderColor, width, height, backgroundColor, color, fontSize, fontFamily}) => {
   return (
     <button type={type}
             onClick={onClick}
@@ -10,7 +10,8 @@ const Button = ({onClick, label, type, borderColor, width, height, backgroundCol
                     height,
                     backgroundColor,
                     color, 
-                    fontSize}}>{label}</button>
+                    fontSize, 
+                    fontFamily}}>{label}</button>
   );
 };
 
