@@ -22,7 +22,7 @@ const PokeCard = props => {
   return (
     <>
       <select onChange={(event) => handleSelectChange(props.number, event)}>
-        <option value="">Select a Pokemon</option>
+        <option value="">Choose your Pokemon</option>
         {props.pokemons.map((poke) => (
           <option key={poke.name} value={poke.name}>{poke.name}</option>
         ))}
